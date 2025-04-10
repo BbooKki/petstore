@@ -15,6 +15,7 @@
 .signup-container a {
   text-decoration: none;
   color: black;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 .signup-container .signup-frame {
@@ -47,7 +48,7 @@
 
 .signup-container .sign-up-frame label {
   margin-bottom: 0px;
-  font-family: "Poppins";
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
   font-style: normal;
   font-weight: 400;
   font-size: 16px;
@@ -104,15 +105,17 @@
   height: 100%;
   display: flex;
   flex-direction: column;
+  justify-content: center;
 }
 
 .signup-container .media-text {
-  font-family: "GT Walsheim Pro";
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
   font-style: normal;
   font-weight: 500;
   font-size: 16px;
-  line-height: 18px;
+  line-height: 16px;
   color: #140342;
+  margin-bottom: -10px;
 }
 
 .signup-container .file-box input[type="file"] {
@@ -157,7 +160,7 @@
 
 .signup-container .thumbnail-desc {
   margin-top: 25px;
-  font-family: "GT Walsheim Pro";
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
   font-style: normal;
   font-weight: 400;
   font-size: 15px;
