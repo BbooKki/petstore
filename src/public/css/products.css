@@ -62,7 +62,7 @@
   align-items: center;
 }
 
-.products-container .board .dish-container {
+.products-container .board .pet-container {
   position: relative;
   margin-top: 20px;
   width: 100%;
@@ -179,7 +179,7 @@
   color: #4f547b;
 }
 
-.products-container .dish-container .half-input-frame {
+.products-container .pet-container .half-input-frame {
   position: relative;
   margin-top: 25px;
   width: 100%;

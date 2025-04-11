@@ -3,7 +3,7 @@ import {
   ProductCollection,
   ProductSize,
   ProductStatus,
-  ProductVolume,
+  ProductGender,
 } from "../libs/enums/product.enum";
 
 // Validation 4 xil bo'ladi: client DTO server schema
@@ -33,6 +33,12 @@ const productSchema = new Schema(
       required: true,
     },
 
+    productGender: {
+      type: String,
+      enum: ProductGender,
+      required: true,
+    },
+
     productLeftCount: {
       type: Number,
       required: true,
@@ -42,12 +48,6 @@ const productSchema = new Schema(
       type: String,
       enum: ProductSize,
       default: ProductSize.NORMAL,
-    },
-
-    productVolume: {
-      type: Number,
-      enum: ProductVolume,
-      default: ProductVolume.ONE,
     },
 
     productDesc: {

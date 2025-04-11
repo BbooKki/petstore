@@ -20,7 +20,7 @@ class MemberService {
 
   public async getRestaurant(): Promise<Member> {
     const result = await this.memberModel
-      .findOne({ memberType: MemberType.RESTAURANT })
+      .findOne({ memberType: MemberType.STORE })
       .lean()
       .exec();
     result.target = "Test";
@@ -128,7 +128,7 @@ class MemberService {
 
   public async processSignup(input: MemberInput): Promise<Member> {
     const exist = await this.memberModel
-      .findOne({ memberType: MemberType.RESTAURANT })
+      .findOne({ memberType: MemberType.STORE })
       .exec();
     console.log("exist: ", exist);
 
