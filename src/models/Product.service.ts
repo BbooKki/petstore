@@ -32,10 +32,12 @@ SPA
 
     if (inquiry.productCollection)
       match.productCollection = inquiry.productCollection;
+    if (inquiry.productGender) match.productGender = inquiry.productGender; 
     if (inquiry.search)
       match.productName = { $regex: new RegExp(inquiry.search, "i") };
-
+  
     console.log("MongoDB query:", match);
+    
 
     const sort: T =
       inquiry.order === "productPrice"
@@ -50,9 +52,10 @@ SPA
         { $limit: inquiry.limit },
       ])
       .exec();
+      
 
     if (!result) throw new Errors(HttpCode.NOT_FOUND, Message.NO_DATA_FOUND);
-
+    
     return result;
   }
 
