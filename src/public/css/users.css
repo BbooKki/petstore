@@ -39,8 +39,8 @@
   z-index: 10000;
   top: 1%;
   color: #efefee;
-  font-size: 40px;
-  font-family: monospace;
+  font-size: 20px;
+  font-family: "Poppins", sans-serif;
 }
 
 .users-container .users-frame {
