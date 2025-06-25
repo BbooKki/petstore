@@ -6,6 +6,8 @@ import routerAdmin from "./router-admin";
 import morgan from "morgan"; //Kirib kelyotgan requestlarni log qiladi
 import cookieParser from "cookie-parser";
 import { MORGAN_FORMAT } from "./libs/config";
+import { Server as SocketIOServer } from "socket.io";
+import http from "http";
 
 import session from "express-session";
 import ConnectMongoDB from "connect-mongodb-session"; //Sessionlarni databasega saqlar uchun kere bo'ladi
@@ -59,8 +61,24 @@ app.set("view engine", "ejs");
 app.use("/admin", routerAdmin); // SSR: EJS
 app.use("/", router); //SPA(SINGLE PAGE APP): REACT //Middleware Design Pattern
 
-export default app; //module.exports = app;
+const server = http.createServer(app);
+const io = new SocketIOServer(server, {
+  cors: {
+    origin: true,
+    credentials: true,
+  },
+});
 
-//API: TRADITIONAL | REST API | GRAPHQL
-//API STRUCTURE: HEADER | BODY
-//API METHODS: GET | POST
+let summaryClient = 0;
+io.on("connection", (socket) => {
+  summaryClient++;
+  console.log(`Connection & total [${summaryClient}]`);
+  // socket.emit("summaryClient", summaryClient);
+  socket.on("disconnect", () => {
+    summaryClient--;
+    console.log(`Disconnection & total [${summaryClient}]`);
+    // socket.emit("summaryClient", summaryClient);
+  });
+});
+
+export default server;
